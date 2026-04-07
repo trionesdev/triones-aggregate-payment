@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.trionesdev.payment</groupId>
-        <artifactId>triones-aggregate-payment</artifactId>
+        <artifactId>aggregate-payment</artifactId>
         <version>0.0.2-SNAPSHOT</version>
     </parent>
     <artifactId>aggregate-payment-dependencies</artifactId>

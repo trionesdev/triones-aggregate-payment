@@ -9,13 +9,13 @@
         <version>0.0.2-SNAPSHOT</version>
     </parent>
 
-    <artifactId>aggregate-payment</artifactId>
+    <artifactId>aggregate-payments</artifactId>
     <packaging>pom</packaging>
-    <name>Triones:AggregatedPayment</name>
+
     <modules>
-        <module>aggregate-payment-core</module>
-        <module>aggregate-payment-wechatpay</module>
         <module>aggregate-payment-alipay</module>
+        <module>aggregate-payment-wechatpay</module>
+        <module>aggregate-payment-core</module>
     </modules>
 
     <properties>
@@ -27,32 +27,14 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.5</version>
-                <scope>import</scope>
-                <type>pom</type>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
                 <groupId>com.trionesdev.payment</groupId>
                 <artifactId>aggregate-payment-dependencies</artifactId>
                 <version>${project.version}</version>
                 <scope>import</scope>
                 <type>pom</type>
             </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-stdlib-jdk8</artifactId>
-                <version>${kotlin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.jetbrains.kotlin</groupId>
-                <artifactId>kotlin-test</artifactId>
-                <version>${kotlin.version}</version>
-                <scope>test</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 </project>

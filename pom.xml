@@ -5,13 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.trionesdev.payment</groupId>
-    <artifactId>triones-aggregate-payment</artifactId>
+    <artifactId>aggregate-payment</artifactId>
     <version>0.0.2-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Triones:AggregatePayment</name>
     <modules>
         <module>aggregate-payment-dependencies</module>
-        <module>aggregate-payment</module>
+        <module>aggregate-payments</module>
     </modules>
 
     <properties>
@@ -20,6 +20,30 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <kotlin.version>2.1.21</kotlin.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>3.3.5</version>
+                <scope>import</scope>
+                <type>pom</type>
+                <optional>true</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-stdlib-jdk8</artifactId>
+                <version>${kotlin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jetbrains.kotlin</groupId>
+                <artifactId>kotlin-test</artifactId>
+                <version>${kotlin.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <repositories>
         <repository>
