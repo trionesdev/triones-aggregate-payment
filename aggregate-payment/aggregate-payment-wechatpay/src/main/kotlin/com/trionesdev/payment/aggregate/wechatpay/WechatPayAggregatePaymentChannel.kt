@@ -1,13 +1,15 @@
-package com.trionesdev.payment.aggregated.wechatpay
+package com.trionesdev.payment.aggregate.wechatpay
 
-import com.trionesdev.payment.aggregated.AggregatedPaymentChannel
-import com.trionesdev.payment.aggregated.AggregatedPaymentNotifyCallback
-import com.trionesdev.payment.aggregated.PaymentComponent
-import com.trionesdev.payment.aggregated.shared.enums.Channel
-import com.trionesdev.payment.aggregated.shared.enums.Currency
-import com.trionesdev.payment.aggregated.shared.enums.Scene
-import com.trionesdev.payment.aggregated.shared.enums.TransferStatus
-import com.trionesdev.payment.aggregated.shared.model.*
+import com.trionesdev.payment.aggregate.AggregatePaymentChannel
+import com.trionesdev.payment.aggregate.AggregatePaymentNotifyCallback
+import com.trionesdev.payment.aggregate.PaymentComponent
+import com.trionesdev.payment.aggregate.shared.enums.Channel
+import com.trionesdev.payment.aggregate.shared.enums.Currency
+import com.trionesdev.payment.aggregate.shared.enums.Scene
+import com.trionesdev.payment.aggregate.shared.enums.TransferStatus
+import com.trionesdev.payment.aggregate.shared.model.*
+import com.trionesdev.payment.aggregate.wechatpay.ConvertUtils
+import com.trionesdev.payment.aggregate.wechatpay.CreateOrderRequestConvert
 import com.trionesdev.payment.util.GsonUtils
 import com.trionesdev.payment.wechatpay.v3.WechatPay
 import com.trionesdev.payment.wechatpay.v3.operation.enums.TransferState
@@ -22,12 +24,12 @@ import java.util.Objects
 import kotlin.let
 
 @PaymentComponent(channel = "WECHAT_PAY")
-class WechatPayAggregatedPaymentChannel(
+class WechatPayAggregatePaymentChannel(
     var wechatpay: WechatPay?,
-    var aggregatedPaymentNotify: AggregatedPaymentNotifyCallback?
-) : AggregatedPaymentChannel() {
+    var aggregatedPaymentNotify: AggregatePaymentNotifyCallback?
+) : AggregatePaymentChannel() {
     companion object {
-        var logger: Logger = LoggerFactory.getLogger(WechatPayAggregatedPaymentChannel::class.java)
+        var logger: Logger = LoggerFactory.getLogger(WechatPayAggregatePaymentChannel::class.java)
     }
 
     override fun createOrder(request: CreateOrderRequest): CreateOrderResponse {
@@ -162,8 +164,8 @@ class WechatPayAggregatedPaymentChannel(
             }
             this.successTime = response.successTime?.let { Instant.parse(response.successTime) }
             this.status = when (response.refundStatus) {
-                RefundStatus.SUCCESS -> com.trionesdev.payment.aggregated.shared.enums.RefundStatus.SUCCESS
-                RefundStatus.CLOSED -> com.trionesdev.payment.aggregated.shared.enums.RefundStatus.CLOSED
+                RefundStatus.SUCCESS -> com.trionesdev.payment.aggregate.shared.enums.RefundStatus.SUCCESS
+                RefundStatus.CLOSED -> com.trionesdev.payment.aggregate.shared.enums.RefundStatus.CLOSED
                 else -> null
             }
             this.raw = GsonUtils.toMap(GsonUtils.toJson(response))

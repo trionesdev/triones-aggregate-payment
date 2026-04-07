@@ -1,6 +1,6 @@
 package com.trionesdev.payment.aggregate.shared.model
 
-import com.trionesdev.payment.aggregated.shared.enums.Currency
+import com.trionesdev.payment.aggregate.shared.enums.Currency
 import java.math.BigDecimal
 
 class Money {

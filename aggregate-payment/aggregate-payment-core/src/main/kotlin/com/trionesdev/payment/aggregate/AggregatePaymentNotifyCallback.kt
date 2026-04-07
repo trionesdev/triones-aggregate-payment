@@ -1,8 +1,8 @@
 package com.trionesdev.payment.aggregate
 
-import com.trionesdev.payment.aggregated.shared.model.RefundNotifyArgs
-import com.trionesdev.payment.aggregated.shared.model.TransactionNotifyArgs
-import com.trionesdev.payment.aggregated.shared.model.TransferNotifyArgs
+import com.trionesdev.payment.aggregate.shared.model.RefundNotifyArgs
+import com.trionesdev.payment.aggregate.shared.model.TransactionNotifyArgs
+import com.trionesdev.payment.aggregate.shared.model.TransferNotifyArgs
 
 /**
  * 支付回调处理

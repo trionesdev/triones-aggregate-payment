@@ -3,7 +3,7 @@ package com.trionesdev.payment.aggregate.alipay
 
 import com.alipay.v3.model.AlipayTradePrecreateModel
 import com.alipay.v3.model.GoodsDetail
-import com.trionesdev.payment.aggregated.shared.model.CreateOrderRequest
+import com.trionesdev.payment.aggregate.shared.model.CreateOrderRequest
 import com.trionesdev.payment.alipay.v3.payment.page.AlipayTradePagePayModel
 import kotlin.text.get
 

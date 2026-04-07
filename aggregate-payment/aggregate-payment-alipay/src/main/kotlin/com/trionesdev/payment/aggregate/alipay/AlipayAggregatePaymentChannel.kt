@@ -5,23 +5,23 @@ import com.alipay.v3.model.AlipayFundTransUniTransferModel
 import com.alipay.v3.model.AlipayTradeCloseModel
 import com.alipay.v3.model.AlipayTradeRefundModel
 import com.alipay.v3.model.Participant
-import com.trionesdev.payment.aggregate.AggregatedPaymentChannel
-import com.trionesdev.payment.aggregate.AggregatedPaymentNotifyCallback
+import com.trionesdev.payment.aggregate.AggregatePaymentChannel
+import com.trionesdev.payment.aggregate.AggregatePaymentNotifyCallback
 import com.trionesdev.payment.aggregate.PaymentComponent
 import com.trionesdev.payment.aggregate.shared.enums.Channel
 import com.trionesdev.payment.aggregate.shared.enums.Currency
 import com.trionesdev.payment.aggregate.shared.enums.Scene
 import com.trionesdev.payment.aggregate.shared.model.CreateOrderRequest
 import com.trionesdev.payment.aggregate.shared.model.CreateOrderResponse
-import com.trionesdev.payment.aggregated.shared.model.*
+import com.trionesdev.payment.aggregate.shared.model.*
 import com.trionesdev.payment.alipay.v3.Alipay
 import com.trionesdev.payment.util.GsonUtils
 import java.math.BigDecimal
 
 @PaymentComponent(channel = "ALIPAY")
 class AlipayAggregatedPaymentChannel(
-    var alipay: Alipay?, var aggregatedPaymentNotify: AggregatedPaymentNotifyCallback?
-) : AggregatedPaymentChannel() {
+    var alipay: Alipay?, var aggregatedPaymentNotify: AggregatePaymentNotifyCallback?
+) : AggregatePaymentChannel() {
     override fun createOrder(request: CreateOrderRequest): CreateOrderResponse {
         var response: Map<String, Any?>? = null;
         when (request.scene) {

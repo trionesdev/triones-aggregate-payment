@@ -1,4 +1,4 @@
-package com.trionesdev.payment.aggregated.wechatpay
+package com.trionesdev.payment.aggregate.wechatpay
 
 import com.trionesdev.payment.aggregate.shared.enums.Currency
 import com.trionesdev.payment.aggregate.shared.model.*

@@ -1,8 +1,8 @@
-package com.trionesdev.payment.aggregated.wechatpay
+package com.trionesdev.payment.aggregate.wechatpay
 
-import com.trionesdev.payment.aggregated.shared.model.CreateOrderRequest
-import com.trionesdev.payment.aggregated.shared.model.Money
-import com.trionesdev.payment.aggregated.shared.model.Payer
+import com.trionesdev.payment.aggregate.shared.model.CreateOrderRequest
+import com.trionesdev.payment.aggregate.shared.model.Money
+import com.trionesdev.payment.aggregate.shared.model.Payer
 import com.trionesdev.payment.wechatpay.v3.model.Amount
 import com.trionesdev.payment.wechatpay.v3.payment.app.model.WechatPayAppCreateOrderRequest
 import com.trionesdev.payment.wechatpay.v3.payment.h5.model.WechatPayH5CreateOrderRequest
